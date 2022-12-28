@@ -6,19 +6,11 @@ function getAllTires($db) {
             ";
     $result = array();
     $stmt = $db->prepare($sql);
-    //print_r($stmt);
+
     $stmt->execute();
-    //print_r($stmt);
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { // рассмотреть fetchAll (режим FETCH_BOTH)
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $result[$row['tare_id']] = $row;
-        /*echo "<pre>";
-        print_r($result[$row['tare_id']]);
-        echo "</pre>";*/
     }
-    //$result = $stmt->fetchAll();
-    /*echo "<pre>";
-    print_r($result);
-    echo "</pre>";*/
     return $result;
 }
 
