@@ -64,7 +64,7 @@
 			        <div class="form-group">
 				        <select name="country" class="form-control" id="country">
 				            <?php
-					            $countries = getCountries($db);
+					            $countries = getCountriesForAdd($db);
 					            foreach ($countries as $key => $value) {
 						            echo "<option value=".$value['country_id'].">".$value['country_name']."</option>";	
 					            }	
@@ -72,7 +72,7 @@
 				        </select>
                         <select name="diameter" class="form-control" id="diameter">
 				            <?php
-					            $diameters = getDiameters($db);
+					            $diameters = getDiametersForAdd($db);
 					            foreach ($diameters as $key => $value) {
 						            echo "<option value=".$value['diameter_id'].">".$value['diameter']."</option>";	
 					            }	

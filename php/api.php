@@ -48,6 +48,28 @@ function getCountries($db) {
 	return $result;
 }
 
+function getCountriesForAdd($db) {
+	$sql = "SELECT * FROM countries;";
+	$result = array();
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+	while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+		$result[$row['country_id']] = $row;
+	}
+	return $result;
+}
+
+function getDiametersForAdd($db) {
+	$sql = "SELECT * FROM diameters;";
+	$result = array();
+	$stmt = $db->prepare($sql);
+	$stmt->execute();
+	while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+		$result[$row['diameter_id']] = $row;
+	}
+	return $result;
+}
+
 function addTire($db, $tire_name, $country_id, $diameter_id) {
 	$sql = "INSERT INTO tires(tire_name, country_id, diameter_id) 
 			VALUES(:tire_name, :country_id, :diameter_id)
