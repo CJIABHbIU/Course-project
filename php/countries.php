@@ -50,9 +50,30 @@
                     </tr>
                 <?php } ?>
              </table>
+             <button id="addButton" class="btn btn-default">Добавить страну производителя</button>
+			    <form action="" method="POST" role="form" style="display: none; margin-top: 20px;">
+		
+			        <div class="form-group">
+				        <label for="">Введите страну производителя</label>
+				        <input type="text" class="form-control" id="country_name" name="country_name" placeholder="Введите страну производителя">
+			        </div>
+                    <button type="submit" class="btn btn-default">Добавить</button>
+                </form>
+		</div>
+        <?php
+			if(isset($_POST['country_name']) && $_POST['country_name'] != '') {
+				$country_name = $_POST['country_name'];
+				addCountry($db, $country_name);
+			}
+		?>
              </div>
 	</div>
 	<footer>	
 	</footer>
+    <script>
+		$("#addButton").click(function(){
+			$("form").slideDown();
+		});
+	</script>
 </body>
 </html>

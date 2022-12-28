@@ -74,6 +74,27 @@ function addTire($db, $tire_name, $country_id, $diameter_id) {
 	$stmt->execute();
 }
 
+function addCountry($db, $country_name) {
+	$sql = "INSERT INTO countries(country_name) 
+			VALUES(:country_name)
+	";
+	$stmt = $db->prepare($sql);
+	$stmt->bindValue(':country_name', $country_name, PDO::PARAM_STR);
+	
+	$stmt->execute();
+}
+
+function addDiameter($db, $diameter) {
+	$sql = "INSERT INTO diameters(diameter_id, diameter) 
+			VALUES(:diameter_id, :diameter)
+	";
+	$stmt = $db->prepare($sql);
+	$stmt->bindValue(':diameter_id', $diameter, PDO::PARAM_STR);
+	$stmt->bindValue(':diameter', $diameter, PDO::PARAM_STR);
+	
+	$stmt->execute();
+}
+
 function getTireById($db, $id) {
     $sql = "SELECT * FROM tires
             WHERE tare_id = :tare_id;

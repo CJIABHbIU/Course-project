@@ -80,18 +80,17 @@
 				        </select>
 			        </div>
 			
-			<button type="submit" class="btn btn-default">Добавить</button>
-		</form>
-		</div>
-		<?php
+			        <button type="submit" class="btn btn-default">Добавить</button>
+		        </form>
+
+            <?php
 			if(isset($_POST['tire_name']) && $_POST['tire_name'] != '') {
 				$tire_name = $_POST['tire_name'];
 				$country_id = $_POST['country'];
                 $diameter_id = $_POST['diameter'];
 				addTire($db, $tire_name, $country_id, $diameter_id);
 			}
-			
-		?>
+            ?>    
 	</div>
 	<footer>
 		

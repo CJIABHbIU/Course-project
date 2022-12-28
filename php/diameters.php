@@ -50,9 +50,30 @@
 					</tr>
 				<?php } ?>
 			</table>
+			<button id="addButton" class="btn btn-default">Добавить диаметр</button>
+			    <form action="" method="POST" role="form" style="display: none; margin-top: 20px;">
+		
+			        <div class="form-group">
+				        <label for="">Введите диаметр</label>
+				        <input type="text" class="form-control" id="diameter" name="diameter" placeholder="Введите диаметр">
+			        </div>
+                    <button type="submit" class="btn btn-default">Добавить</button>
+                </form>
 		</div>
+        <?php
+			if(isset($_POST['diameter']) && $_POST['diameter'] != '') {
+				$diameter = $_POST['diameter'];
+				addDiameter($db, $diameter);
+			}
+		?>
+             </div>
 	</div>
 	<footer>	
 	</footer>
+    <script>
+		$("#addButton").click(function(){
+			$("form").slideDown();
+		});
+	</script>
 </body>
 </html>
